@@ -6,9 +6,9 @@ name: Build and deploy Node.js project to Azure Function App - lab11-funcapp
 on:
   push:
     branches:
-      - "main"
+      - 'main'
     paths: 
-      -'api'/**'
+      -'api/**'
       - '.github/workflows/main_lab11funcapp.yml'
   workflow_dispatch:
 
