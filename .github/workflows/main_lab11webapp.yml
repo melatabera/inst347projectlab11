@@ -9,6 +9,7 @@ on:
       - "main"
     paths: 
       -'frontend/**'
+      - '.github/workflows/main_lab11webapp.yml'
   workflow_dispatch:
 
 jobs:
@@ -16,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
+    defaults:
+      run:
+        working-directory: frontend
 
     steps:
       - uses: actions/checkout@v4
@@ -35,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: "frontend"
+          path: frontend
 
   deploy:
     runs-on: ubuntu-latest
@@ -63,4 +67,4 @@ jobs:
         with:
           app-name: "lab11webapp"
           slot-name: "Production"
-          package: "frontend"
+          package: .
